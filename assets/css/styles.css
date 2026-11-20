@@ -79,6 +79,11 @@ svg {
   display: block;
 }
 
+/* Keep the `hidden` attribute working on elements given a display value above (e.g. the icon sprite) */
+[hidden] {
+  display: none !important;
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;
