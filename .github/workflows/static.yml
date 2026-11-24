@@ -46,3 +46,8 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
+
+  # run playwright tests using playwright.yml workflow
+  playwright:
+    needs: deploy
+    uses: ./.github/workflows/playwright.yml
