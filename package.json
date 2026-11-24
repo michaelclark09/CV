@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "QA Engineer based in Sunderland, UK. Manual and automation testing (Cypress, Playwright, Postman), with 4+ years on complex SaaS products.",
   "scripts": {
-    "test": "playwright test"
+    "test": "playwright test",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "repository": {
     "type": "git",
