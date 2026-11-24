@@ -1,4 +1,3 @@
-// Progressive enhancement: the print button only appears when JavaScript is available.
 (function () {
   'use strict';
 
