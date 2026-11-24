@@ -79,18 +79,9 @@ svg {
   display: block;
 }
 
-/* Keep the `hidden` attribute working on elements given a display value above (e.g. the icon sprite) */
+/* Keep the `hidden` attribute working on elements given a display value (e.g. the print button) */
 [hidden] {
   display: none !important;
-}
-
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
 }
 
 /* 3. Layout
@@ -334,10 +325,6 @@ svg {
 .button--ghost:hover {
   background: var(--color-slate);
   color: #fff;
-}
-
-.button[hidden] {
-  display: none;
 }
 
 /* Section heading */
@@ -600,7 +587,7 @@ svg {
   border-top: 0;
 }
 
-.entry__dates {
+.entry .entry__dates {
   font-family: var(--font-display);
   font-size: 1.0625rem;
   font-weight: 600;
@@ -642,7 +629,7 @@ svg {
 
 /* 5. Responsive
    ========================================================================== */
-@media (max-width: 47.5em) {
+@media screen and (max-width: 47.5em) {
   :root {
     --gutter: 1.25rem;
   }
@@ -681,6 +668,25 @@ svg {
   }
 }
 
+/* Fit all nav links on a phone without sideways scrolling */
+@media screen and (max-width: 30em) {
+  .site-nav__list {
+    flex: 1;
+    justify-content: space-between;
+    gap: 0;
+    margin-inline: -0.25rem;
+  }
+
+  .site-nav__link {
+    padding-inline: 0.25rem;
+    font-size: clamp(0.75rem, 3.6vw, 0.875rem);
+  }
+
+  .site-nav__link:focus-visible {
+    outline-offset: -3px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -689,33 +695,100 @@ svg {
 
 /* 6. Print
    ========================================================================== */
+@page {
+  size: A4;
+  margin: 12mm;
+}
+
 @media print {
-  .site-nav,
-  .hero__actions,
-  .skip-link {
-    display: none !important;
+  /* Browsers drop backgrounds when printing; the ratings, icons and timeline dots need them */
+  *,
+  *::before,
+  *::after {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  :root {
+    --color-paper: #fff;
+    --gutter: 0;
+  }
+
+  html {
+    font-size: 12px;
   }
 
   body {
-    background: #fff;
-    font-size: 11pt;
+    line-height: 1.45;
+  }
+
+  .site-nav,
+  .hero__actions,
+  .skip-link,
+  .hatch {
+    display: none !important;
   }
 
   .hero {
-    padding-block: 1rem;
+    padding-block: 0 0.75rem;
+  }
+
+  .hero__name {
+    font-size: 5rem;
   }
 
   .section {
-    padding-block: 1rem;
+    padding-block: 0.75rem;
+  }
+
+  .section-heading {
+    margin-bottom: 0.75rem;
+  }
+
+  /* The fine hatch renders unevenly in PDFs, so use a plain rule */
+  .section-heading::after {
+    height: 1px;
+    background: var(--color-rule-light);
+  }
+
+  .grid-2 {
+    gap: 2rem;
   }
 
   .lead {
     font-size: 1.0625rem;
+    line-height: 1.55;
+  }
+
+  .timeline {
+    gap: 1.25rem;
+  }
+
+  .highlight {
+    padding: 1rem 1.5rem;
+  }
+
+  .skill-list__item {
+    padding-block: 0.5rem;
+  }
+
+  .entry {
+    padding-block: 0.75rem;
+  }
+
+  .site-footer {
+    padding-block: 0.75rem 0;
+  }
+
+  .section-heading,
+  .subheading {
+    break-after: avoid;
   }
 
   .job,
   .entry,
-  .highlight {
+  .highlight,
+  .skill-list__item {
     break-inside: avoid;
   }
 

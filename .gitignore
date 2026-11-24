@@ -1,0 +1,30 @@
+
+# Playwright
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+
+# Build output (created by the Pages workflow)
+/_site/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor and local tool settings
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.claude/settings.local.json

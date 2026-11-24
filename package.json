@@ -1,0 +1,24 @@
+{
+  "name": "github-page-site",
+  "version": "1.0.0",
+  "description": "QA Engineer based in Sunderland, UK. Manual and automation testing (Cypress, Playwright, Postman), with 4+ years on complex SaaS products.",
+  "scripts": {
+    "test": "playwright test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaelclark09/CV.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/michaelclark09/CV/issues"
+  },
+  "homepage": "https://github.com/michaelclark09/CV#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.65.1",
+    "@types/node": "^26.6.6"
+  }
+}

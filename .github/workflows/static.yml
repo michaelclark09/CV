@@ -1,4 +1,4 @@
-# Publishes the repository root to GitHub Pages on every push to main.
+# Publishes index.html and assets/ to GitHub Pages on every push to main.
 name: Deploy to GitHub Pages
 
 on:
